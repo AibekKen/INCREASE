@@ -1,0 +1,271 @@
+@mixin flexbox() {
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+}
+
+@mixin flex($values) {
+   -webkit-box-flex: $values;
+   -moz-box-flex: $values;
+   -webkit-flex: $values;
+   -ms-flex: $values;
+   flex: $values;
+}
+
+@mixin order($val) {
+   -webkit-box-ordinal-group: $val;
+   -moz-box-ordinal-group: $val;
+   -ms-flex-order: $val;
+   -webkit-order: $val;
+   order: $val;
+}
+
+$fontfamily: "Lato";
+
+$minwidth: 320px;
+
+@import "nullstyle.scss";
+
+@import "_header.scss";
+
+
+.ibg {
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: relative;
+}
+
+.ibg img {
+   width: 0;
+   height: 0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   visibility: hidden;
+}
+
+.wrapper {
+   overflow: hidden;
+   min-height: 100%;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+   max-width: 990px;
+   padding: 0px 15px;
+   margin: 0 auto;
+}
+a{
+   transition: all 0.3s ease;
+}
+a:hover{
+   color: #000;
+}
+
+
+.content {
+
+   &__body {
+      @include flexbox();
+      @media (max-width:540px) {
+         flex-direction: column;
+      }
+   }
+
+   &__column {
+
+      &_1 {
+         @include flex(0 0 calc(((184)/959)*100%));
+         align-self: start;
+         background: #777777;
+         padding: 19px 25px 41px 13px;
+         margin: 0 20px 0 0;
+         font-size: 14px;
+         line-height: 22px;
+         color: #ffffff;
+         h2{font-weight: 700;}
+         @media (max-width:540px) {
+            margin: 0px 0px 20px 0px;
+         }
+
+      }
+   }
+
+   &__main-text {
+   }
+
+   &__gallary {
+   }
+
+   &__articls {
+      margin:  0 0 25px 0;
+   }
+}
+
+.main-text {
+   padding: 21px;
+   line-height: 22px;
+   background-color: #dcdcdc;
+   color: #777777;
+   margin: 0 0 20px 0;
+h2{font-weight: 700;
+margin: 0 0 25px 0;}
+   &__list{
+      padding: 0 0 0 20px;
+      margin: 0 0 25px 0;
+
+}
+   &__list li{
+   position: relative;
+   }
+   &__list span{
+      font-weight: 700;
+   }
+   &__list li::before{
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: -10px;
+      width: 4px;
+      height: 4px;
+      background: #777777;
+      border-radius:  50%;
+
+   }
+}
+   .gallary {
+@include flexbox();
+margin: 0 -25px 20px 0;
+
+flex-wrap: wrap;
+   &__item {
+      width: 130px;
+      height: 150px;
+      background-color: #dcdcdc;
+      margin: 0 26px 20px 0;
+      transition: all 0.3s ease;
+   }
+   &__item:hover {
+      transform: scale(1.1);
+   }
+}
+.articls {
+   @include flexbox();
+justify-content: space-between;
+@media (max-width:540px) {
+   flex-direction: column;
+   
+}
+   &__item {
+      @include flex(0 0 calc((460/959)*100%));
+      
+      padding: 21px 21px 40px;
+      line-height: 22px;
+      background-color: #dcdcdc;
+      color: #777777;
+      @media (max-width:540px) {
+       margin: 0 0 20px 0;  
+      }
+   }
+}
+
+
+.footer {
+
+   &__row {
+      position: relative;
+      padding: 20px 0 0 0;
+      @include flexbox();
+      justify-content: space-between;
+      @media (max-width:623px){
+         flex-direction: column;
+      }
+      &::before{
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 1px;
+         background: #000;
+      }
+   }
+
+   &__column {
+     
+      @include flex(0 1 31%);
+      padding: 20px;
+      background: #777777;
+      @media (max-width:623px){
+         margin: 0 0 20px 0;
+      }
+      &_1{
+         @include flexbox();
+      }
+      &:last-child{
+         background: #ffffff;
+         padding: 0px;
+         @media (max-width:623px){
+            margin: 0 0 0 0;
+         }
+      }
+
+   }
+
+   &__points {
+      @include flex(0 1 50%);
+   }
+
+   &__tariff {
+   
+      background: #777777;
+   }
+}
+
+.points {
+
+   &__link {
+      line-height: 22px;
+      color: #ffffff;
+         }
+   
+}
+
+.tariff {
+   & li{
+      position: relative;
+      margin: 0 0 0 10px;
+   }
+   & li::before{
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: -10px;
+      width: 4px;
+      height: 4px;
+     
+      background: #ffffff;
+   }
+   &__link {
+      line-height: 22px;
+      color: #ffffff;
+         }
+   }
+
+.column {
+
+   &__row {
+      width: 100%;
+      background: #777777;
+      height: 45%;
+      margin: 0 0 10% 0;
+      @media (max-width:623px){
+         height: 100px;
+         margin: 0 0 20px 0;
+      }
+   }
+}
