@@ -311,6 +311,9 @@ a:hover {
   }
 }
 
+.footer {
+  margin: 0 0 40px 0;
+}
 .footer__row {
   position: relative;
   padding: 20px 0 0 0;
